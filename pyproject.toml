@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simple_mbtiles_server"
+version = "0.1.0"
+description = "A simple server for MBTiles files"
+requires-python = ">=3.7"
+dependencies = [
+    "fastapi>=0.68.0",
+    "uvicorn>=0.15.0",
+    "mapbox-vector-tile>=1.2.0",
+    "shapely>=2.0.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=6.0.0",
+    "httpx>=0.18.0",
+    "mapbox-vector-tile>=1.2.0",
+    "shapely>=2.0.0"
+]
+
+[project.scripts]
+simple-mbtiles-server = "simple_mbtiles_server.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["simple_mbtiles_server*"] 

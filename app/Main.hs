@@ -13,10 +13,10 @@ main = do
   doIt commandLineOpts
 
 doIt :: Config.CommandLine OptionsGeneric.Unwrapped -> IO ()
-doIt (Config.CommandLine mbtilesfile startBrowser) = do
+doIt (Config.CommandLine mbtilesfile startBrowser port) = do
   case mbtilesfile of
     Just mbtf ->
-      Lib.startApp mbtf startBrowser
+      Lib.startApp mbtf startBrowser port
 
     Nothing -> do
       putStrLn $ "No mbtiles file specified"

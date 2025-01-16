@@ -3,10 +3,21 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    commit: 56792bc7d77fc0016d7c0179b50f06ce158defaf
+    git: https://github.com/state-machine-io/mbtiles.git
+    name: mbtiles
+    pantry-tree:
+      sha256: 4ec926a20c9d61f2872d0f4a5cbc11cb2f68354b3b9d986cd90908e1cf7db0d9
+      size: 1092
+    version: 0.6.0.0
+  original:
+    commit: 56792bc7d77fc0016d7c0179b50f06ce158defaf
+    git: https://github.com/state-machine-io/mbtiles.git
 snapshots:
 - completed:
-    size: 524996
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/14/27.yaml
-    sha256: 7ea31a280c56bf36ff591a7397cc384d0dff622e7f9e4225b47d8980f019a0f0
-  original: lts-14.27
+    sha256: e2c529ccfb21501f98f639e056cbde50470b86256d9849d7a82d414ca23e4276
+    size: 712898
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/22/12.yaml
+  original: lts-22.12

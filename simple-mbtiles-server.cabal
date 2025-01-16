@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.36.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ff7f547d2fc5597a5c39ce8b1d5da2e624c70b5629310c2fcd6515c2be6c279f
+-- hash: 2bba3f82bf546f731297a4d78a76f4c9f3db2a4bfd521fe33d70d92a33a66d7a
 
 name:           simple-mbtiles-server
 version:        0.0.2.0
@@ -37,7 +37,12 @@ library
       Paths_simple_mbtiles_server
   hs-source-dirs:
       src
-  default-extensions: OverloadedStrings TypeOperators DataKinds RecordWildCards DeriveGeneric
+  default-extensions:
+      OverloadedStrings
+      TypeOperators
+      DataKinds
+      RecordWildCards
+      DeriveGeneric
   ghc-options: -fno-warn-deprecations -fprint-potential-instances -fwarn-unused-imports -fwarn-unused-binds -fwarn-tabs
   build-depends:
       aeson

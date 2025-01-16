@@ -77,4 +77,4 @@ getTile conns z x y = do
       Servant.throwError Servant.err404 {Servant.errBody = Errors.errorString "404" "No tiles found" "Try requesting a different tile."}
   where
     action =
-      Mbtiles.runMbtilesPoolT conns (Mbtiles.getTile (Mbtiles.Z z) (Mbtiles.X x) (Mbtiles.Y y))
+      Mbtiles.runMbtilesPoolT conns (Mbtiles.getTile (Mbtiles.Tile (Mbtiles.Z z, Mbtiles.X x, Mbtiles.Y y)))

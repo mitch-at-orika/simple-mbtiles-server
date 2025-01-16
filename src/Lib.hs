@@ -24,8 +24,8 @@ getTilesPool :: FilePath -> IO (Either Mbtiles.MBTilesError Mbtiles.MbtilesPool)
 getTilesPool file = do
   Mbtiles.getMbtilesPool file
 
-startApp :: FilePath -> Bool -> IO ()
-startApp mbtilesfile startBrowser = do
+startApp :: FilePath -> Bool -> Int -> IO ()
+startApp mbtilesfile startBrowser port = do
   mbTilesConnsOrError <- getTilesPool mbtilesfile
   case mbTilesConnsOrError of
     Left e -> do
@@ -33,10 +33,10 @@ startApp mbtilesfile startBrowser = do
       SystemExit.exitWith (SystemExit.ExitFailure 2)
     Right spatialConns -> do
       contentEncoding <- DB.getTileEncoding spatialConns
-      let action = Wai.run 8765 $ debug $ Servant.serve Routes.api (Controller.server contentEncoding spatialConns)
+      let action = Wai.run port $ debug $ Servant.serve Routes.api (Controller.server contentEncoding spatialConns)
       if startBrowser
         then do
-          b <- Browser.openBrowser $ Text.unpack "http://127.0.0.1" ++ ":" ++ "8765"
+          b <- Browser.openBrowser $ Text.unpack "http://127.0.0.1" ++ ":" ++ show port
           if b
             then action
             else print "Failed to start browser"

@@ -11,7 +11,8 @@ import qualified Options.Generic as OptionsGeneric
 
 data CommandLine w = CommandLine
   { mbtilesFile :: w OptionsGeneric.::: Maybe FilePath OptionsGeneric.<?> "Mbtiles file to serve",
-    browser :: w OptionsGeneric.::: Bool OptionsGeneric.<?> "Start a browser with a simple map to view tiles"
+    browser :: w OptionsGeneric.::: Bool OptionsGeneric.<?> "Start a browser with a simple map to view tiles",
+    port :: w OptionsGeneric.::: Int OptionsGeneric.<?> "Port to start server"
   }
   deriving (OptionsGeneric.Generic)
 
